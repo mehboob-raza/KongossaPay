@@ -1,0 +1,429 @@
+@import "tailwindcss";
+@plugin "tailwindcss-animate";
+@custom-variant dark (&:is(.dark *));
+
+@layer utilities {
+  .padding-x {
+    @apply px-10 sm:px-14;
+  }
+
+  .padding-y {
+    @apply py-12 sm:py-24;
+  }
+}
+
+@layer components {
+  .max-container {
+    max-width: 1300px;
+    margin: 0 auto
+  }
+}
+
+.invisible-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  overflow-x: auto;
+  display: none;
+}
+.Select {
+  width: var(--radix-select-trigger-width);
+  overflow-x: hidden;
+  height:'60px'
+}
+body {
+  background-color: #F3F4F0;
+}
+
+.heading {
+  font-size: 1.5rem; /* Increased from 1.5rem for better mobile readability */
+  font-family: 'PPTelegraf-Bold', sans-serif;
+  background: linear-gradient(to right, #0a136e, #0770e6);
+  background-clip: text;
+  color: transparent;
+  line-height: 40px; /* Adjusted for better spacing on mobile */
+  padding-bottom: 10px; /* Added padding for better spacing */
+
+  /* Small devices (640px and up) */
+  @media (min-width: 640px) { 
+    font-size: 2.5rem;
+    line-height: 50px;
+  }
+
+  /* Medium devices (768px and up) */
+  @media (min-width: 768px) { 
+    font-size: 3rem;
+    line-height: 60px;
+  }
+
+  /* Large devices (1024px and up) */
+  @media (min-width: 1024px) { 
+    font-size: 3.5rem;
+    line-height: 70px;
+    /* -webkit-text-stroke: 1px #0a136e; */
+  }
+}
+
+.heading2 {
+  font-size: 1.75rem; /* Increased from 1rem for better mobile readability */
+  font-family: 'PPTelegraf-Ultralight', sans-serif;
+  background: linear-gradient(to right, #0a136e, #0770e6);
+  background-clip: text;
+  color: transparent;
+  line-height: 35px; /* Adjusted for better spacing */
+  padding-bottom: 15px;
+
+  /* Small devices (640px and up) */
+  @media (min-width: 640px) { 
+    font-size: 2.25rem;
+    line-height: 40px;
+  }
+
+  /* Medium devices (768px and up) */
+  @media (min-width: 768px) { 
+    font-size: 3rem;
+    line-height: 45px;
+  }
+
+  /* Large devices (1024px and up) */
+  @media (min-width: 1024px) { 
+    font-size: 3.5rem;
+    line-height: 50px;
+    padding-bottom: 20px;
+  }
+}
+
+
+.heading3 {
+  font-size: 0.875rem; /* Reduced from 1rem */
+  font-family: 'PPTelegraf-Ultralight', sans-serif;
+  background: linear-gradient(to right, #0a136e, #0770e6);
+  background-clip: text;
+  color: transparent;
+  line-height: 50px; /* Reduced from 70px */
+  padding-bottom: 20px; /* Reduced from 30px */
+
+  @media (min-width: 640px) { 
+    font-size: 3.5rem;
+  }
+}
+
+
+:root {
+  --background: hsl(0, 0%, 1%);
+  --foreground: hsl(0 0% 3.9%);
+  --heading: hsl(202.5 14.3% 11%);
+  --text: hsl(0, 0%, 48%);
+  --card: hsl(0 0% 100%);
+  --card-foreground: hsl(0 0% 3.9%);
+  --popover: hsl(0 0% 100%);
+  --popover-foreground: hsl(0 0% 3.9%);
+  --primary: hsl(206 80% 49%);
+  --primary-hover: hsl(205 81.3% 37.6%);
+  --primary-foreground: hsl(0 0% 100%);
+  --secondary: hsl(0 0% 96.1%);
+  --secondary-foreground: hsl(0 0% 9%);
+  --muted: hsl(0 0% 96.1%);
+  --muted-foreground: hsl(0 0% 45.1%);
+  --accent: hsl(214.12 100% 50%);
+  --accent-foreground: hsl(211 98% 55%);
+  --destructive: hsl(205 75% 93.7%);
+  --destructive-foreground: hsl(0 0% 98%);
+  --border: hsl(0 0% 89.8%);
+  --input: hsl(0 0% 100%);
+  --ring: hsl(0 0% 3.9%);
+  --chart-1: hsl(12 76% 61%);
+  --chart-2: hsl(173 58% 39%);
+  --chart-3: hsl(197 37% 24%);
+  --chart-4: hsl(43 74% 66%);
+  --chart-5: hsl(27 87% 67%);
+  --radius: 0.5rem;
+}
+
+.dark {
+  --background: hsl(207 27.8% 14.1%);
+  --foreground: hsl(0 0% 98%);
+  --heading: hsl(0 0% 100%);
+  --text: hsl(0 0% 93.7%);
+  --card: hsl(206.5 33.3% 20%);
+  --card-foreground: hsl(0 0% 98%);
+  --popover: hsl(0 0% 3.9%);
+  --popover-foreground: hsl(0 0% 98%);
+  --primary: hsl(206 80% 49%);
+  --primary-hover: hsl(205 81.3% 37.6%);
+  --primary-foreground: hsl(0 0% 100%);
+  --secondary: hsl(0 0% 14.9%);
+  --secondary-foreground: hsl(0 0% 98%);
+  --muted: hsl(0 0% 14.9%);
+  --muted-foreground: hsl(0 0% 63.9%);
+  --accent: hsl(0 0% 14.9%);
+  --accent-foreground: hsl(0 0% 98%);
+  --destructive: hsl(206.5 33.3% 20%);
+  --destructive-foreground: hsl(0 0% 98%);
+  --border: hsl(0 0% 14.9%);
+  --input: hsl(207 24.4% 16.1%);
+  --ring: hsl(0 0% 83.1%);
+  --chart-1: hsl(220 70% 50%);
+  --chart-2: hsl(160 60% 45%);
+  --chart-3: hsl(30 80% 55%);
+  --chart-4: hsl(280 65% 60%);
+  --chart-5: hsl(340 75% 55%);
+}
+
+@font-face {
+  font-family: 'PPTelegraf-Ultralight';
+  src: url('./fonts/telegraf/PPTelegraf-Ultralight.woff2') format('woff2');
+  font-weight: 200;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'PPTelegraf-Regular';
+  src: url('./fonts/telegraf/PPTelegraf-Regular.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'PPTelegraf-Medium';
+  src: url('./fonts/telegraf/PPTelegraf-Regular.woff2') format('woff2');
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'PPTelegraf-Bold';
+  src: url('./fonts/telegraf/PPTelegraf-Bold.woff2') format('woff2');
+  font-weight: 700;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'PPTelegraf-ExtraBold';
+  src: url('./fonts/telegraf/PPTelegraf-Bold.woff2') format('woff2');
+  font-weight: 800;
+  font-style: normal;
+}
+
+/* Tailwind theme configuration */
+@theme {
+  --font-ultralight: 'PPTelegraf-Ultralight', sans-serif;
+  --font-regular: 'PPTelegraf-Regular', sans-serif;
+  --font-medium: 'PPTelegraf-Medium', sans-serif;
+  --font-bold: 'PPTelegraf-Bold', sans-serif;
+  --font-extrabold: 'PPTelegraf-ExtraBold', sans-serif;
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-grey-text: var(--text);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+}
+
+@layer base {
+  * {
+    @apply font-[var(--font-regular)];
+  }
+
+  body {
+    @apply bg-background text-foreground;
+
+  }
+}
+
+
+/* Custom Scrollbar Styling */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #0a136e;
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #0a136e;
+}
+
+/* Flip Card Effect */
+.group:hover .group-hover\:rotate-y-180 {
+  transform: rotateY(180deg);
+}
+
+.perspective {
+  perspective: 1200px;
+}
+
+.transform-style-3d {
+  transform-style: preserve-3d;
+}
+
+.rotate-y-180 {
+  transform: rotateY(180deg);
+}
+
+/* Hero section animation  */
+
+@keyframes rotate {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes rotateReverse {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(-360deg);
+  }
+}
+
+.animate-rotate {
+  animation: rotate 6s linear infinite;
+}
+
+.animate-rotate-reverse {
+  animation: rotateReverse 6s linear infinite;
+}
+@keyframes expand {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 0.4;
+  }
+  50% {
+    transform: scale(1.2);
+    opacity: 0.6;
+  }
+}
+
+@keyframes expandReverse {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 0.4;
+  }
+  50% {
+    transform: scale(0.8);
+    opacity: 0.6;
+  }
+}
+
+.animate-expand {
+  animation: expand 4s ease-in-out infinite;
+}
+
+.animate-expand-reverse {
+  animation: expandReverse 4s ease-in-out infinite;
+}
+@keyframes particleFloat {
+  0% {
+    transform: translateY(0px) translateX(0px);
+    opacity: 0.7;
+  }
+  50% {
+    transform: translateY(-10px) translateX(10px);
+    opacity: 0.9;
+  }
+  100% {
+    transform: translateY(0px) translateX(0px);
+    opacity: 0.7;
+  }
+}
+
+.particle {
+  animation: particleFloat 3s ease-in-out infinite;
+}
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-50px);
+  }
+}
+
+@keyframes floatReverse {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(50px);
+  }
+}
+
+.animate-floating {
+  animation: float 4s ease-in-out infinite;
+}
+
+.animate-floating-reverse {
+  animation: floatReverse 4s ease-in-out infinite;
+}
+@keyframes buttonFade {
+  0% {
+    opacity: 0;
+    transform: scale(0.4);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.animate-button-fade {
+  animation: buttonFade 2s ease-out forwards;
+}
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in {
+  animation: fadeIn 2s ease-out forwards;
+}
