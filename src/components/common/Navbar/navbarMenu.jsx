@@ -110,6 +110,14 @@ export function NavbarMenu() {
                 </NavigationMenuLink>
               </Link>
             </NavigationMenuItem>
+            <NavigationMenuItem>
+              <Link href="/auth-form" legacyBehavior passHref>
+                <NavigationMenuLink className="text-[#0a136e] hover:text-[#0770e6] transition-colors duration-300 font-semibold">
+                  Login
+                </NavigationMenuLink>
+              </Link>
+            </NavigationMenuItem>
+
           </NavigationMenuList>
         </NavigationMenu>
       </div>
@@ -131,8 +139,8 @@ export function NavbarMenu() {
               <div className="space-y-3">
                 <h3 className="text-[#0a136e] font-semibold">Products</h3>
                 {components.map((component) => (
-                  <Link 
-                    href={component.href} 
+                  <Link
+                    href={component.href}
                     key={component.key}
                     onClick={() => setIsOpen(false)}
                   >
@@ -155,26 +163,33 @@ export function NavbarMenu() {
 
               {/* Navigation Links */}
               <div className="space-y-2 pt-2 border-t">
-                <Link 
+                <Link
                   href="/about-us"
                   onClick={() => setIsOpen(false)}
                   className="block p-2 text-[#0a136e] hover:text-[#0770e6] transition-colors duration-300 font-semibold"
                 >
                   About Us
                 </Link>
-                <Link 
+                <Link
                   href="/faqs"
                   onClick={() => setIsOpen(false)}
                   className="block p-2 text-[#0a136e] hover:text-[#0770e6] transition-colors duration-300 font-semibold"
                 >
                   FAQs
                 </Link>
-                <Link 
+                <Link
                   href="/help"
                   onClick={() => setIsOpen(false)}
                   className="block p-2 text-[#0a136e] hover:text-[#0770e6] transition-colors duration-300 font-semibold"
                 >
                   Help
+                </Link>
+                <Link
+                  href="/auth-form"
+                  onClick={() => setIsOpen(false)}
+                  className="block p-2 text-[#0a136e] hover:text-[#0770e6] transition-colors duration-300 font-semibold"
+                >
+                  Login
                 </Link>
               </div>
             </div>

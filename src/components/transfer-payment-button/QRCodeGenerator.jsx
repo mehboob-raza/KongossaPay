@@ -5,12 +5,12 @@ import { ImCancelCircle } from "react-icons/im";
 import * as Dialog from "@radix-ui/react-dialog";
 
 export default function QRCodeGenerator() {
-    const walletURL = "https://play.google.com/store/apps/details?id=cf.sdk.finance&hl=en_IE"; // Replace with actual wallet link
+    // const walletURL = "https://play.google.com/store/apps/details?id=cf.sdk.finance&hl=en_IE"; // Replace with actual wallet link
+    const walletURL = "https://play.google.com/store/apps/details?id=com.paypal.android.p2pmobile&hl=en"; // Replace with actual wallet link
 
     return (
         <div>
             <Dialog.Root>
-                {/* Trigger Button */}
                 <Dialog.Trigger asChild>
                     <button
                         className="cursor-pointer px-8 py-2 text-[1rem] font-medium bg-gradient-to-r from-[#0a136e] to-[#0770e6] text-white rounded-full shadow-lg hover:shadow-xl transition-all duration-300"
@@ -20,7 +20,6 @@ export default function QRCodeGenerator() {
                 </Dialog.Trigger>
 
                 <Dialog.Portal>
-                    {/* <Dialog.Overlay className="bg-black bg-opacity-50 z-50" /> */}
 
                     <Dialog.Content
                         className="fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-white p-6 rounded-lg shadow-xl w-[100%] max-w-lg z-[60]"
