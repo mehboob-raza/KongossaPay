@@ -1,0 +1,45 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mongodb"
+  url      = env("DATABASE_URL")
+}
+
+
+model User {
+  id                     String        @id @default(auto()) @map("_id") @db.ObjectId
+  email                  String        @unique
+  username               String        @unique
+  password               String
+  isVerified             Boolean       @default(false)
+  otp                    String?
+  otpExpires             DateTime?
+
+  wallet                 Wallet?
+  transactionsSent       Transaction[] @relation("SentTransactions")
+  transactionsReceived   Transaction[] @relation("ReceivedTransactions")
+  balance                Float         @default(0)
+  createdAt              DateTime      @default(now())
+}
+
+model Wallet {
+  id         String   @id @default(auto()) @map("_id") @db.ObjectId
+  userId     String   @unique
+  user       User     @relation(fields: [userId], references: [id])
+  paymentId  String   @unique
+  balance    Float    @default(0)
+  createdAt  DateTime @default(now())
+}
+
+model Transaction {
+  id          String   @id @default(auto()) @map("_id") @db.ObjectId
+  senderId    String
+  receiverId  String
+  amount      Float
+  createdAt   DateTime @default(now())
+
+  sender      User     @relation("SentTransactions", fields: [senderId], references: [id])
+  receiver    User     @relation("ReceivedTransactions", fields: [receiverId], references: [id])
+}
