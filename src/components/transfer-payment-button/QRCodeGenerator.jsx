@@ -7,12 +7,21 @@ import * as Dialog from "@radix-ui/react-dialog";
 export default function QRCodeGenerator() {
     const walletURL = "https://play.google.com/store/apps/details?id=com.paypal.android.p2pmobile&hl=en";
     const router = useRouter();
+    const handleClick = () => {
+        const token = localStorage.getItem("token");
 
+        if (!token) {
+            router.push("/auth-form");
+        } else {
+            setOpen(true);
+        }
+    };
     return (
         <div>
             <Dialog.Root>
                 <Dialog.Trigger asChild>
                     <button
+                        onClick={handleClick}
                         className="cursor-pointer px-8 py-2 text-[1rem] font-medium bg-gradient-to-r from-[#0a136e] to-[#0770e6] text-white rounded-full shadow-lg hover:shadow-xl transition-all duration-300"
                     >
                         Start a Transfer →
@@ -41,14 +50,6 @@ export default function QRCodeGenerator() {
                             <QRCodeCanvas value={walletURL} size={160} />
                         </div>
 
-                        <div className="flex justify-center">
-                            <button
-                                onClick={() => router.push("/create-wallet")}
-                                className="cursor-pointer mt-4 px-6 py-2 bg-[#0a136e] text-white rounded-full hover:bg-[#0c1c91] transition-all duration-300"
-                            >
-                                Send from here
-                            </button>
-                        </div>
                     </Dialog.Content>
                 </Dialog.Portal>
             </Dialog.Root>
